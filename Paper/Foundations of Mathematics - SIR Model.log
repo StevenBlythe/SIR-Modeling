@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.13)  23 NOV 2021 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.13)  23 NOV 2021 19:00
 entering extended mode
 **"./Foundations of Mathematics - SIR Model.tex"
 (Foundations of Mathematics - SIR Model.tex
@@ -474,51 +474,51 @@ rs
 \f@nch@O@orf=\skip71
 )
 \c@theorem=\count303
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 8
-2.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
+4.
 
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 82.
+(Font)              scaled to size 9.49997pt on input line 64.
 
 (Foundations of Mathematics - SIR Model.aux)
 \openout1 = `"Foundations of Mathematics - SIR Model.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 82.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
+(Font)              scaled to size 7.59998pt on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
 
 
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
 
 
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 82
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 64
 .
 
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/jknappen\ursfs.fd
@@ -544,7 +544,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 82.
+Package hyperref Info: Link coloring OFF on input line 64.
 
 (D:\N-Z\Programming Resources\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -558,9 +558,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count310
 )
-LaTeX Info: Redefining \ref on input line 82.
-LaTeX Info: Redefining \pageref on input line 82.
-LaTeX Info: Redefining \nameref on input line 82.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
  (Foundations of Mathematics - SIR Model.out)
 (Foundations of Mathematics - SIR Model.out)
 \@outlinefile=\write4
@@ -570,50 +570,27 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 88.
+(Font)              scaled to size 9.49997pt on input line 70.
 LaTeX Font Info:    Font shape `OT1/phv/m/sc' will be
-(Font)              scaled to size 7.59998pt on input line 108.
+(Font)              scaled to size 7.59998pt on input line 90.
 LaTeX Font Info:    Font shape `OT1/phv/m/sc' will be
-(Font)              scaled to size 9.49997pt on input line 115.
+(Font)              scaled to size 9.49997pt on input line 97.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 173.
+(Font)              scaled to size 6.64998pt on input line 107.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 173.
+(Font)              scaled to size 4.74998pt on input line 107.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 173.
+(Font)              scaled to size 9.49997pt on input line 107.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 6.64998pt on input line 173.
+(Font)              scaled to size 6.64998pt on input line 107.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 4.74998pt on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <7> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <5> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 173.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 4.74998pt on input line 173.
+(Font)              scaled to size 4.74998pt on input line 107.
  [43{C:/Users/Stvnd/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 208.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 127.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 208.
+(Font)              scaled to size 9.49997pt on input line 127.
 
-
-Package amsmath Warning: Foreign command \over;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 252.
-
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 279.
-LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 7.59998pt on input line 279.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 281.
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -624,23 +601,24 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 [44]
 
-Package lipsum Warning: Hyphenation patterns for 'latin' cannot be used
-(lipsum)                because babel is not loaded. The default document
-(lipsum)                language will be used for hyphenation instead.
-(lipsum)                
-(lipsum)                This message won't be shown again.
+LaTeX Warning: Reference `fig1' on page 45 undefined on input line 164.
 
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 179.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 9.49997pt on input line 179.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <7> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 179.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 6.64998pt on input line 179.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <5> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 179.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 4.74998pt on input line 179.
 
-Overfull \hbox (4.51749pt too wide) in paragraph at lines 294--296
-\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
-Ut pu-rus elit, vestibu-
- []
-
-
-Overfull \hbox (3.03177pt too wide) in paragraph at lines 294--296
-\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
-i tris-tique senec-
- []
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 258.
 
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
@@ -651,8 +629,12 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 285.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 7.59998pt on input line 285.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 7.59998pt on input line 287.
 
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
@@ -663,6 +645,34 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [46]
+
+Package lipsum Warning: Hyphenation patterns for 'latin' cannot be used
+(lipsum)                because babel is not loaded. The default document
+(lipsum)                language will be used for hyphenation instead.
+(lipsum)                
+(lipsum)                This message won't be shown again.
+
+
+Overfull \hbox (4.51749pt too wide) in paragraph at lines 300--302
+\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
+Ut pu-rus elit, vestibu-
+ []
+
+
+Overfull \hbox (3.03177pt too wide) in paragraph at lines 300--302
+\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
+i tris-tique senec-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (8.0pt): 
+(fancyhdr)                Make it at least 12.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
+
+[47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -674,43 +684,9 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[47]
-Overfull \hbox (1.58917pt too wide) in paragraph at lines 308--310
-[]\OT1/phv/m/n/10 https://www.maa.org/press/periodicals/loci/joma/the-sir-model
--for-spread-
- []
-
-
-Overfull \hbox (4.51749pt too wide) in paragraph at lines 308--310
-\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
-Ut pu-rus elit, vestibu-
- []
-
-
-Overfull \hbox (3.03177pt too wide) in paragraph at lines 308--310
-\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
-i tris-tique senec-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (8.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
-
 [48]
-Overfull \hbox (4.51749pt too wide) in paragraph at lines 316--318
-\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
-Ut pu-rus elit, vestibu-
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (3.03177pt too wide) in paragraph at lines 316--318
-\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
-i tris-tique senec-
- []
 
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
@@ -721,6 +697,23 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [49]
+Overfull \hbox (1.58917pt too wide) in paragraph at lines 314--316
+[]\OT1/phv/m/n/10 https://www.maa.org/press/periodicals/loci/joma/the-sir-model
+-for-spread-
+ []
+
+
+Overfull \hbox (4.51749pt too wide) in paragraph at lines 314--316
+\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
+Ut pu-rus elit, vestibu-
+ []
+
+
+Overfull \hbox (3.03177pt too wide) in paragraph at lines 314--316
+\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
+i tris-tique senec-
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -730,6 +723,17 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [50]
+Overfull \hbox (4.51749pt too wide) in paragraph at lines 322--324
+\OT1/phv/m/n/10 Lorem ip-sum do-lor sit amet, con-sectetuer adip-isc-ing elit. 
+Ut pu-rus elit, vestibu-
+ []
+
+
+Overfull \hbox (3.03177pt too wide) in paragraph at lines 322--324
+\OT1/phv/m/n/10 Donec ve-hic-ula au-gue eu neque. Pel-len-tesque habi-tant morb
+i tris-tique senec-
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -738,19 +742,40 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[51] (Foundations of Mathematics - SIR Model.aux)
+[51]
+
+Package fancyhdr Warning: \headheight is too small (8.0pt): 
+(fancyhdr)                Make it at least 12.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
+
+[52]
+
+Package fancyhdr Warning: \headheight is too small (8.0pt): 
+(fancyhdr)                Make it at least 12.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
+
+[53] (Foundations of Mathematics - SIR Model.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `"Foundations of Mathematics - SIR Model".out
 ' has not changed.
-(rerunfilecheck)             Checksum: B5E8E834DB7E499ECC1731FF701DC153;3127.
+(rerunfilecheck)             Checksum: 347011A3666CF1BC69C45BD19F85BFA8;3493.
  ) 
 Here is how much of TeX's memory you used:
  13880 strings out of 478927
- 206169 string characters out of 2856740
- 632965 words of memory out of 3000000
- 31316 multiletter control sequences out of 15000+600000
- 434926 words of font info for 92 fonts, out of 8000000 for 9000
+ 206101 string characters out of 2856740
+ 632905 words of memory out of 3000000
+ 31312 multiletter control sequences out of 15000+600000
+ 436143 words of font info for 93 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 72i,12n,81p,594b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,12n,81p,621b,580s stack positions out of 5000i,500n,10000p,200000b,80000s
 {D:/N-Z/Programming Resources/MiKTeX/fonts/enc/dvips/base/8r.enc}<D:/N-Z/Prog
 ramming Resources/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/N-Z/Prog
 ramming Resources/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><D:/N-Z/Progr
@@ -758,10 +783,10 @@ amming Resources/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/N-Z/
 Programming Resources/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><D:/N-Z/Progra
 mming Resources/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><D:/N-Z/Programming 
 Resources/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "Foundations of Mathematics - SIR Model.pdf" (9 pages, 93456 
-bytes).
+Output written on "Foundations of Mathematics - SIR Model.pdf" (11 pages, 98847
+ bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 170 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

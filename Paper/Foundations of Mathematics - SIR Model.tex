@@ -1,17 +1,4 @@
-% Draft of template for seminar proceedings
-
 \documentclass{amsart}
-
-%\documentclass[12pt]{article}
-
-%\setlength{\textwidth}{\paperwidth}
-%\addtolength{\textwidth}{-1in}
-%\calclayout
-
-%\usepackage[margin=2cm]{geometry} %This command widens the margins
-
-%\marginparwidth=70pt
-
 \usepackage[scaled]{helvet}
 \renewcommand*\familydefault{\sfdefault} % These two commands set the base font of the document to sans serif
 
@@ -29,11 +16,6 @@
 \usepackage{subfig}
 \xyoption{all}
 
-%\usepackage[T1]{fontenc}
-%\usepackage{euscript}
-
-
-% This pile of commands makes the header!!!!!!
 \usepackage{fancyhdr} %Package that allows for neat headers
 \pagestyle{fancy}
 \fancyhead[LE]{{\sc Proc. Stockton Math. Sem.}} %Header on the left of even numbered pages
@@ -44,7 +26,7 @@
 % End of pile of commands that makes the header!
 
 % FIRST PAGE NUMBER
-\setcounter{page}{43}                   %%%%%%%
+\setcounter{page}{43}                  %%%%%%%
 \setlength{\textwidth}{4.4in}          %%%%%%%
 \setlength{\textheight}{7.0in}         %%%%%%%
 \setlength{\evensidemargin}{1in}       %%%%%%%
@@ -97,7 +79,7 @@
 \end{center}
 
 \title[Running Title (shorter)]
-{Title of Your Paper (long version)}
+{SIR Modeling and Covid}
 
 \author{Steven Blythe}
 \email{StevenBlytheSU@gmail.com}
@@ -106,25 +88,53 @@
 \keywords{}
 
 \begin{abstract}
-Here goes a short abstract of your paper.
+ABSTRACT HERE
 
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
-What is Differential Equations and why do we use it to model infectious diseases?
 
-\begin{figure}[ht]
+What is Differential Equations and why do we use it to model infectious diseases? It is important to note that the goal of mathematical models are not to create a perfect representation of an event occurring in the real world. Instead, mathematical models are a mere representation of an event with the goal to help understand an aspect of the event. % 2
+
+While we may use mathematical models, we must take note that the real world has many variables that complicates our representation. For example, we might make a model for the amount of crop yield in a given year based on crop data. However, we may say blueberries tend to bloom over the summer so we should expect a higher yield over the summer, real-world factors such as droughts, demand fluctuation, and ongoing diseases may lower crop yield in a given year.
+
+When we build models, we should look to compare our model with data from the real world. If our model accurately describes what we are representing, then we have created a tool to assist us in predicting a system. Otherwise, if our model is wrong, we should study and pay close attention to our model to improve our knowledge for our assumption.
+
+\section{Model Building}
+
+Think to yourself. How do you think you might model population growth? If we have a population of $100$ in a given year, we might first consider adding a fraction of our population back into the total population. As the population grows, the fraction we add back in also grows. Our model may only have a few factors considered, but our model is a good basis for what we are looking for. Our model suggests the rate of growth of our population is proportional to the population itself. Using this assumption, we can derive a working model with variables.
+
+We established a population for our model, a population of $100$, in our first model for population growth. Instead of using $100$, we can use variable $P$ to represent our population size. We also represented our population growth in terms of a fraction, or $k$. Here, we have a simple model to represent change from one instance. However, how should we find our population after many days? Here, we can use $t$ to represent years and $P(t)$ will represent the quantity of our population.
+
+If we want to consider a model where we can find the rate of change of our population $P$, we might want to find $\frac{dP}{dt}$. Now, from our assumption, we are looking for a model where we can measure the rate of growth for a given population. We know this rate of growth is proportional to our population. Here, we want to look for the following differentual equation:
+
+\[ \frac{dP}{dt} = kP \]
+
+Here, we created a differential equation. Our differential equation is a first-order equation since we are only considering the first derivative of our dependent variable.
+
+\section{Finding Meaning in our Models}
+
+For the model we created, we know our model will predict our population after a given amount of time. Our model always assume our population will grow at a rate $k$. What would it mean if $\frac{dP}{dt} = 0$? Since our rate of growth is positive, that means our population $P$ must have began at $0$. Here, we can represent our equation as:
+
+\[ \frac{dP}{dt} = k(0)\]
+
+For all our $t$, $P(t) = 0$. Since $k$ is a positive constant, we can expect to have a population of $0$ if our population begins at $0$ at $t = 0$, or $t_0$. We can represent our initial population, or initial condition, as $P(t_0)$.
+
+Can we expect our differential equation to be negative at some point? Since we are looking at a population, we only want to consider $kP \geq 0$.
+
+\newpage
+% \begin{figure}[ht]
 % \label{fig1}
-\centering
+% \centering
 %{\includegraphics[height=30mm]{fig4.jpg}}
 %\label{fig1}
-\qquad
+% \qquad
 %{\includegraphics[height=30mm]{fig5.jpg}}
-\caption{Smoothing hair on a flat head
-\label{fig1}}
-\end{figure}
+% \caption{Smoothing hair on a flat head
+% \label{fig1}}
+% \end{figure}
 
 % This optional version of the two figures side-by-side, in case you want
 % to label the subfigures as (A) and (B),
@@ -143,11 +153,7 @@ What is Differential Equations and why do we use it to model infectious diseases
 %    \label{fig1optional}}
 %    \end{figure}
 
-Or only one Figure
-(this simpler command can be used if we don't want a label,
-or we don't want to refer to the figure later on):
-
-\medskip
+% \medskip
 
 
     %_______________________________________________________
