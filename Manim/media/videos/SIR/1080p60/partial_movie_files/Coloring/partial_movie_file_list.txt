@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Nexus/Personal/Programming/Github/SIR Modeling/SIR-Modeling/Manim/media/videos/SIR/1080p60/partial_movie_files/Coloring/450974505_4144864537_1578170450.mp4'
+file 'file:C:/Users/Nexus/Personal/Programming/Github/SIR Modeling/SIR-Modeling/Manim/media/videos/SIR/1080p60/partial_movie_files/Coloring/34786186_3922280159_516603459.mp4'
+file 'file:C:/Users/Nexus/Personal/Programming/Github/SIR Modeling/SIR-Modeling/Manim/media/videos/SIR/1080p60/partial_movie_files/Coloring/34786186_3793260668_3291048402.mp4'

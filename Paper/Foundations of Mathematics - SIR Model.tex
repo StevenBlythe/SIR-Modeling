@@ -124,6 +124,63 @@ For all our $t$, $P(t) = 0$. Since $k$ is a positive constant, we can expect to 
 
 Can we expect our differential equation to be negative at some point? Since we are looking at a population, we only want to consider $kP \geq 0$, which would never 'grow' into a negative population.
 
+Now, can we graph our equation right now? Not yet. If we graph $kP$, we only have a linear graph. Should our growth, which is proportional to our current population, produce a linear graph? If our growth is $10\%$ and our initial population is $100$, we may expect an increase of roughly $10$ people in one time step. If we move another time step, should we expect the same increase of $10$ or should we expect an increase of $11$? To find the equation we can use to predict our growth, we must solve our differential equation. If we solve our differential equation, our solution is as follows:
+
+\[ P(t) = ce^{kt} \]
+
+% Perhaps perform the solution?
+
+This is the general solution for our system. Remember, $k$ is our rate of growth and $t$ represents time. Note that we also added $c$ to our equation. The constant $c$ came from an integration we performed to find our solution. To find $c$, we use our initial condition $P(t_0)$. If $P(t_0)$ is $10$, then we have:
+
+\begin{align*}
+  P(t_0) & = ce^{k(0)}\\
+  10 & = c\\
+  P(t) & = 10e^{kt}
+\end{align*}
+
+Here, we a specific solution for our initial condition, $P(t_0) = 10$. We can plot the specific solution to predict our population growth. Now, let us consider a few initial conditions for our starting population. Remember, population should be non-negative. Let us let $P(t_0)$ be $0$ first.
+
+% Graph here | c = 0,
+
+Looking at the graph, we can see our population is always $0$ for all of $t$. Now, let us consider a few other examples, such as $P(t_0) = 100, 200, 500$
+
+% Graph here | c = 100, 200, 500
+
+\section{Logistic Population Model}
+
+Looking at the graphs in the previous section, should we expect our model to work in the real world? Not always. If we're modeling the population of rabbits in an area, we may expect an initial growth. However, as time goes on, there will eventually be not enough resources for all the rabbits in an area. Now, we want a model where we can predict a growth while under a threshold but a decay above a threshold. Let us look at our original equation for growth:
+
+\[ \frac{dP}{dt} = kP \]
+
+Here, let us consider a threshold for our equation, $N$. Let us consider a few cases surrounding $N$:
+
+\begin{enumerate}
+  \item If $P < N$, let population grow: $\frac{dP}{dt} \approx kP$
+  \item If $P = N$, let our population growth become stagnant.
+  \item If $P > N$, let population decrease: $\frac{dP}{dt} < 0$
+\end{enumerate}
+
+Here, we can see our population size and threshold are related in some way. If $P < N$, we should expect a positive number, whereas if $P > N$, we should expect a negative number. One way we can represent this is with the following:
+
+\[ (1 - \frac{P}{N} )\]
+
+Here, we can plug our new expression into our original equation.
+
+\[ \frac{dP}{dt} = kP \Big(1 - \frac{P}{N} \Big) \]
+
+% Produce the graph.
+
+\section{Predator-Prey Sytems}
+% Introduce a new variable.
+
+% 1. Model rabbit population.
+% 2. Introduce foxes into Rabbit's model
+% 3. Model fox population
+% 4. Introduce rabbits into fox's model
+
+\section{Paul or SIR}
+
+
 \newpage
 % \begin{figure}[ht]
 % \label{fig1}
