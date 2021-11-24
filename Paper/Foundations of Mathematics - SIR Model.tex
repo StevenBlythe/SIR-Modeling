@@ -26,7 +26,7 @@
 % End of pile of commands that makes the header!
 
 % FIRST PAGE NUMBER
-\setcounter{page}{43}                  %%%%%%%
+\setcounter{page}{0}                  %%%%%%%
 \setlength{\textwidth}{4.4in}          %%%%%%%
 \setlength{\textheight}{7.0in}         %%%%%%%
 \setlength{\evensidemargin}{1in}       %%%%%%%
@@ -58,6 +58,11 @@
     \def\r{{\Bbb R}}
     % ABS value
     \def\abs#1{\vert \, {#1} \, \vert}
+
+    % dS/dt, dI/dt, dR/dt
+    \newcommand{\dS}{\frac{dS}{dt}}
+    \newcommand{\dI}{\frac{dI}{dt}}
+    \newcommand{\dR}{\frac{dR}{dt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -190,20 +195,86 @@ What does this graph tell us? Looking at this graph, we can predict the growth o
 
 Now, let us modify our model one more time. We created a logistic population model for the rabbits in our forest. However, we only took account for limited resources in a given area. In the real world, the rabbit population also depends on how many predators are in the area. If there are a lot of predators in the area, then the rabbit population might shrink until foxes can no longer find rabbits with ease. Let us consider a model with the following parameters:
 \begin{enumerate}
-  \item R: Rabbit population
-  \item \alpha: Growth-rate for Rabbits
-  \item \beta: Death-rate between Rabbits-Foxes interaction.
-  \item 
+  \item R: Rabbit Population
+  \item $\alpha$: Growth-rate for Rabbits
+  \item $\beta$: Death-rate between Rabbits-Foxes interaction.
+  \item F: Fox Population
 \end{enumerate}
 
-% Introduce a new variable.
+Taking a look at our scenario and parameters, we can find the following model:
 
-% 1. Model rabbit population.
-% 2. Introduce foxes into Rabbit's model
-% 3. Model fox population
-% 4. Introduce rabbits into fox's model
+\begin{align*}
+  \frac{dR}{dt} & = \alpha R - \beta RF
+\end{align*}
 
-\section{Paul or SIR}
+Here, $\alpha$ and $\beta$ are constant values. We can see as the fox population increases, more rabits are hunted and removed from the population. However, note that $F$ is a variable similar as $R$. If we can model $R$, how might we model $F$?
+
+Since we know foxes benefit from interacting with rabbits, what would happen if all the rabbits disappeared from the area? Those foxes depend on rabbits to sustain their population. Without rabbits, we can expect the fox population to decline at a given rate. Let us consider a few more parameters:
+
+\begin{enumerate}
+  \item F: Fox Population
+  \item $\gamma$: Decay-rate for Foxes
+  \item $\delta$: Beneficial-rate for Fox-Rabbit interactions.
+  \item R: Rabbit Population
+\end{enumerate}
+
+Here, let us take a look at our model for the Rabbit population and our new model for the Fox population:
+
+\begin{align}
+  \frac{dR}{dt} & = \alpha R - \beta RF\\
+  \frac{dF}{dt} & = -\gamma F + \delta FR
+\end{align}
+
+Here, we can see a relationship between the Rabbit population and the Fox population. This first-order system have variables which depend on each other. The size of the Rabbit population is dependent on the size of the Fox population and vice versa.
+% Note that when the Fox population is empty, or $F = 0$, then the Rabbit population can be written as:
+%\begin{align}
+%  \frac{dR}{dt} & = \alpha R
+%\end{align}
+Let us take a look at what our graph looks like when $alpha = 2$, $\beta = 1.6$, $\gamma = -1$, and $\delta = 0.8$
+
+% Graph here
+
+Looking at our graph, we can see our Rabbit population and Fox population dance around a point in the graph. Here, the graph is moving about the system's equilibrium point. Let us take a look at how $R$ and $F$ grow and decay as time goes on in a $R-t$ and $F-t$ graph:
+
+% Rt graph, Ft graph, both together at once
+
+Here, we can see there are times when our Rabbit population will grow until the population hits a peak and begin to shrink again, repeating the process over again. The Fox population exhibits a similar graph. However, when we stack both graphs ontop of each other, we can see the peak for the Fox population occurs right after the Rabbit population peak. In addition, we can see as the Fox population decreases, the Rabbit population benefits and begins to grow once more.
+
+
+\section{SIR Modeling}
+
+How can we configure our Predator-Prey model to model an epidemic? Here, let us consider the stages of an infection, such as the common cold. At first, we might consider a healthy individual who is not infected. Once the individual catches the infection, the individual might go a few days with the illness. However, after a few more days, the individual will recover and potentially have a stronger immune system to combat against that infection.
+
+Here, we can see we go through three phases: susceptible, infected, and recovered phases. Also note that when we expand this model to a community, we might consider a fraction of the population to be susceptible, infected, or recovered. For this model, we consider and deceased individuals as recovered Here, we have a few variables we are considering:
+
+\begin{enumerate}
+  \item $s(t) = S$: Number of susceptible individuals
+  \item $i(t) = I$: Number of infected individuals
+  \item $r(t) = R$: Number of recovered individuals
+\end{enumerate}
+
+Now, how might we model our pandemic? Let us consider our susceptible population. Our susceptible population is decreasing at a rate proportional to the interaction between susceptible and infected individuals. Our infected population increases by the same interaction. In addition, our infected population decreases at a rate proportional to the recovery rate. Our recovered population increases by the same rate. With our given assumptions, we can create the following model where $\alpha$ is the infection rate and $\beta$ is the recovery rate:
+% Refractor SIR to sir? -- hey, those were my old initials!
+\begin{align*}
+  \dS & = -\alpha SI\\
+  \dI & = \alpha SI - \beta I\\
+  \dR & = \beta I
+\end{align*}
+
+Consider our population, $N$. Here, $N$ can represent the population of the globe or the population of one's community. If we look at our population, note that the population size is constant throughout the model. In the predator-prey model, the population size fluctuates as we move forward in time. In our SIR model, our size is constant. This means we can rewrite our variables as:
+%
+\begin{enumerate}
+  \item $s(t)/N = S(t)$: Percentage of population considered as Susceptible
+  \item $i(t)/N = I(t)$: Percentage of population considered as Infected
+  \item $r(t)/N = R(t)$: Percentage of population considered as Recovered
+\end{enumerate}
+
+Here, since $S(t)$, $I(t)$, and $R(t)$ are all a fraction of our population. If we add them all together, we should find $S(t) + I(t) + R(t) = 1$
+
+\section{Visualizing our Pandemic}
+
+Before we continue with our differential equations, let us visualize 
+
 
 
 \newpage
