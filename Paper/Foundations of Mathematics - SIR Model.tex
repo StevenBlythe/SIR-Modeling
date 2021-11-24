@@ -168,9 +168,33 @@ Here, we can plug our new expression into our original equation.
 
 \[ \frac{dP}{dt} = kP \Big(1 - \frac{P}{N} \Big) \]
 
+If we go ahead and solve for the general solution, we can expect to find:
+
+\begin{align*}
+  P(t) & = -\frac{2e^{kt + c}}{1 - e^{kt + c}}
+\end{align*}
+
+Here, we can use our general solution to help us plot different particular solutions.
+
+What can we expect to find with our graph? Will our initial condition always grow to infinity, or can we expect to experience a decay after a period of growth? Here, let us plot a few particular solutions. % For N, k
+
+% P = lambda t : -(2*math.e**(k * t + c))/( 1 - math.e**(k * t + c) )
+
+Here, we can see our solution approaches a certain value, the equillibria, in the graph and slows down its growth or decay. When we are above this line, we see our solution is always decaying. When we are below this line, we see our solution is always growing. Eventually, the growth and decay slows down to a halt.
+
+What does this graph tell us? Looking at this graph, we can predict the growth or decay of our rabbit population. If we pick a point underneath the equillibria, then we should expect our population to grow until our population reaches the threshold. If we pick a point above this line, we should expect our population to decay until we reach the threshold.
+
 % Produce the graph.
 
 \section{Predator-Prey Sytems}
+
+Now, let us modify our model one more time. We created a logistic population model for the rabbits in our forest. However, we only took account for limited resources in a given area. In the real world, the rabbit population also depends on how many predators are in the area. If there are a lot of predators in the area, then the rabbit population might shrink until foxes can no longer find rabbits with ease. Let us consider a model with the following parameters:
+\begin{enumerate}
+  \item \alpha: Growth-rate for rabbits
+  \item R: Rabbit population
+  \item \beta: 
+\end{enumerate}
+
 % Introduce a new variable.
 
 % 1. Model rabbit population.
