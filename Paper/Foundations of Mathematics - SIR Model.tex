@@ -178,19 +178,21 @@ Here, we can plug our new expression into our original equation.
 If we go ahead and solve for the general solution, we can expect to find:
 
 \begin{align*}
-  P(t) & = -\frac{Ne^{kt + c}}{1 - e^{kt + c}}
+  P(t) & = \frac{N}{1 - ce^{-kt}}
 \end{align*}
 
-Here, we can use our general solution to help us plot different particular solutions.
+Here, we can use our general solution to help us plot different particular solutions. Note that $k$ is our rate of growth, $t$ is time, $N$ is our carrying capacity, and $c$ is our constant from our integration. When we set $P(0)$, we can find our initial condition.
 
 What can we expect to find with our graph? Will our initial condition always grow to infinity, or can we expect to experience a decay after a period of growth? Here, let us plot a few particular solutions. % For N, k
 
+\[ Graph here: one c \]
 % P = lambda t : -(2*math.e**(k * t + c))/( 1 - math.e**(k * t + c) )
 
 Here, we can see our solution approaches a certain value, the equillibria, in the graph and slows down its growth or decay. When we are above this line, we see our solution is always decaying. When we are below this line, we see our solution is always growing. Eventually, the growth and decay slows down to a halt.
 
 What does this graph tell us? Looking at this graph, we can predict the growth or decay of our rabbit population. If we pick a point underneath the equillibria, then we should expect our population to grow until our population reaches the threshold. If we pick a point above this line, we should expect our population to decay until we reach the threshold.
 
+\[ Graph here: Multiple c \]
 % Produce the graph.
 
 \section{Predator-Prey Sytems}
@@ -232,12 +234,14 @@ Here, we can see a relationship between the Rabbit population and the Fox popula
 %\begin{align}
 %  \frac{dR}{dt} & = \alpha R
 %\end{align}
-Let us take a look at what our graph looks like when $alpha = 2$, $\beta = 1.6$, $\gamma = -1$, and $\delta = 0.8$
+Let us take a look at what our graph looks like when $\alpha = 2$, $\beta = 1.6$, $\gamma = 1$, and $\delta = 0.8$
 
+\[ Graph Here \]
 % Graph here
 
 Looking at our graph, we can see our Rabbit population and Fox population dance around a point in the graph. Here, the graph is moving about the system's equilibrium point. Let us take a look at how $R$ and $F$ grow and decay as time goes on in a $R-t$ and $F-t$ graph:
 
+\[ Graph Here \]
 % Rt graph, Ft graph, both together at once
 
 Here, we can see there are times when our Rabbit population will grow until the population hits a peak and begin to shrink again, repeating the process over again. The Fox population exhibits a similar graph. However, when we stack both graphs ontop of each other, we can see the peak for the Fox population occurs right after the Rabbit population peak. In addition, we can see as the Fox population decreases, the Rabbit population benefits and begins to grow once more.
