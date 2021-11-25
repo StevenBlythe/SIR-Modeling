@@ -1,6 +1,8 @@
 *.aux
 *.fdb_latexmk
 *.fls
+*.svg
+*.dvi
 *.log
 *.gz
 Research/locations.synctex.gz
@@ -8,3 +10,5 @@ Research/locations.pdf
 Research/locations.log
 Research/locations.aux
 Research/locations.synctex.gz
+Manim/media/*
+*.pyc

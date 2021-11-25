@@ -145,10 +145,12 @@ This is the general solution for our system. Remember, $k$ is our rate of growth
 
 Here, we a specific solution for our initial condition, $P(t_0) = 10$. We can plot the specific solution to predict our population growth. Now, let us consider a few initial conditions for our starting population. Remember, population should be non-negative. Let us let $P(t_0)$ be $0$ first.
 
+\[ Graph here \]
 % Graph here | c = 0,
 
-Looking at the graph, we can see our population is always $0$ for all of $t$. Now, let us consider a few other examples, such as $P(t_0) = 100, 200, 500$
+Looking at the graph, we can see our population is always $0$ for all of $t$. Now, let us consider a few other examples, such as $P(t_0) = 0, 0.5, 1, 1.5, \ldots, 10$.
 
+\[ Graph here \]
 % Graph here | c = 100, 200, 500
 
 \section{Logistic Population Model}
@@ -176,7 +178,7 @@ Here, we can plug our new expression into our original equation.
 If we go ahead and solve for the general solution, we can expect to find:
 
 \begin{align*}
-  P(t) & = -\frac{2e^{kt + c}}{1 - e^{kt + c}}
+  P(t) & = -\frac{Ne^{kt + c}}{1 - e^{kt + c}}
 \end{align*}
 
 Here, we can use our general solution to help us plot different particular solutions.
@@ -273,9 +275,56 @@ Here, since $S(t)$, $I(t)$, and $R(t)$ are all a fraction of our population. If 
 
 \section{Visualizing our Pandemic}
 
-Before we continue with our differential equations, let us visualize 
+Let us put a pin on our differential equations and let us visualize portions of our model to help understand why each component is important.
 
+First, let us consider how fast an infection can spread starting from one individual. Let us assume all infected individuals remain infected and each infected individual infects one non-infected individual at each time step.
 
+\[ Model here \]
+% 1 infected to 1 -> 2
+% 2 infected to 2 -> 4
+% 4 infected to 4 -> 8
+
+Looking at our model, we can see our number of infected individuals double after every time interval. If the time step is one day, that means we will have a population of 16 infected individuals after 4 days. What would happen if we let this simulation run for more days? How long would it take to infect our entire population? If we let our population be $100000$, how long would it take to infect everyone starting from one infected individual?
+
+\[ Graph Here \]
+% aI %
+
+The growth at the start of our graph starts out slow. It takes time for the infection to catch wind and start spreading fast throughout the population. Fortunately for us, infections cannot exhibit such exponential growth. Consider this: If the population is roughly $100\%$ susceptible, then the individuals that the infected person comes into contact with is roughly $100\%$. If $50\%$ of the population is susceptible, then the infected should expect its contacted people to be about $50\%$ susceptible. Here, let us visualize the infected person's interactions:
+
+\[ Image here \]
+% 1 to 10 | 1 to 5/5 | 1 to 0/10
+
+Here, recall we modified our first population model and created a logistic population model. Let us see how a logistic growth can change the way our model runs:
+
+\[ Graph here \]
+% Logistic Growth Curve
+
+Here, our graph exhibits a slow growth at the start, a rapid growth when our population is roughly $50\%$ infected, then a slow growth as our infected population reaches $100\%$.
+
+Now, we know when we become infected, we can recover from the infection. Now, let us make the assumption that once an individual recovers from an infection, the individual becomes immune to the infection. Let us consider a population made up of $100\%$ infected individuals. If infected individuals become recovered at a rate of $\beta$. Here is what our graph looks like when our population can recover from the infection:
+
+\[ Graph here \]
+% Exponential decay curve
+
+How would our graph look like if we let our population become infected and recover from the infection?
+
+\[ Graph here \]
+% SIR Model
+
+This graph represents our SIR model. Other SIR models consider many more factors, such as increasing population, vaccinations rates, mask rates, and so on.
+
+Why might our infection grow? In epidemiology, diseases are  associated with a reproduction number. This reproduction number is the average number of people an infected individual can infect before the infected individual can recover. As an outbreak ensues, the infection's reproduction number, R, changes. When an infection begins, the infection's initial $R$ is considered $R_0$. What might $R$ look like if $R_0$ is greater than $1$?
+
+\[ Images here \]
+% R_0 > 1 | R = 1 | R < 1
+
+% -- 1 -- https://www.news-medical.net/health/What-is-R0.aspx %
+To give a perspective, the common cold has an $R_0$ of about $2-3$ and Measles has an $R_0$ of $12-18$.
+
+How might we start looking for $R_0$? To begin, we can look at how many days it would take for an infected individual to infect one person. In addition, we may look at how long it will take for an infected person to recover. For example, if a person infects one person every four days and it takes the infected individual eight days to recover, we can expect $R_0$ to be $2$. However, if it takes two days to recover, then $R_0$ would be $0.5$.
+
+% -- 2 -- https://www.cdc.gov/coronavirus/2019-ncov/php/contact-tracing/contact-tracing-plan/prioritization/mathematicalmodeling.html %
+If we can make $R < 1$, then we have reached herd immunity. We can lower $R$ through measures such as quarantining, contact tracing, and vaccine campaigns.
 
 \newpage
 % \begin{figure}[ht]
@@ -448,6 +497,8 @@ John Milnor, {\it
 
 \end{thebibliography}
 
+% --1-- https://www.news-medical.net/health/What-is-R0.aspx
+
 \newpage
 \section{Paul's Online Notes}
 https://tutorial.math.lamar.edu/Classes/DE/DE.aspx\\
@@ -483,5 +534,7 @@ https://www.youtube.com/watch?v=Kas0tIxDvrg\\
 % https://julia.quantecon.org/continuous_time/seir_model.html \\
 \lipsum[3-4]
 \end{sansmath}
+
+
 
 \end{document}
