@@ -195,18 +195,35 @@ class PredatorPreyModelGraph(Scene):
         self.wait(10)
         self.play(Uncreate(stream_lines))
 
-class PredatorPreyModelRF(Scene):
+class DotPairs(VGroup):
+    def __init__(
+        self,
+        pairs = 2,
+        **kwargs
+    ):
+        self.pairs = pairs
+        self.infected = Dot(color=RED)
+        self.healthy = Dot(color=BLUE)
+        self.pair = VGroup(self.infected, self.healthy).set_x(0).arrange(buff=1.0)
+        self.infected_copy = self.infected.copy()
+        super().__init__(**kwargs)
+
+
+class InfectDots(Scene):
     def construct(self):
-        ax = Axes(
-            x_range = [0, 10, 1],
-            y_range = [0, 10, 1],
-            tips = False
-        )
-        print('Nothing yet')
+        self.pairdots = DotPairs()
+        self.add(self.pairdots.pair)
+        print()
+        # 1 infects 1, 2 infect 2, 4 infect 4, etc.
+        # Create blue and red dots, place side-by-side
+        # Move red dots to overlap blue dots
+        # Have four iterations.
+        # Grid : [0][0] infects [1][0], [0][1], [1][1]
+
 
 
 if __name__ == "__main__":
     os.system('cls')
-    os.system('manim ".\SIR.py" PredatorPreyModel -p')
-    #os.system('manim ".\SIR.py" PredatorPreyModel -sp')
-    #os.system('manim ".\SIR.py" PredatorPreyModel -q k -p')
+    #os.system('manim ".\SIR.py" InfectDots -p')
+    os.system('manim ".\SIR.py" InfectDots -sp')
+    #os.system('manim ".\SIR.py" InfectDots -q k -p')
