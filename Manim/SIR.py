@@ -220,10 +220,44 @@ class InfectDots(Scene):
         # Have four iterations.
         # Grid : [0][0] infects [1][0], [0][1], [1][1]
 
+class Relationship(VGroup):
+    def __init__(self, 
+        amount = 1,
+        **kwargs):
+        # Initializes amount of pairs (n pairs of infected:healthy)
+        self.amount = amount
+        self.healthy = VGroup()
+        self.infected = VGroup()
+
+        # Populate with dots
+        self.healthy.add(*[Dot(color = BLUE) for n in range(amount)])
+        self.infected.add(*[Dot(color = RED) for n in range(amount)])
+
+        # Arrange into a grid
+        self.healthy.arrange_in_grid(rows=amount)
+        self.infected.arrange_in_grid(rows=amount)
+        
+        super().__init__(**kwargs)
+
+    def add_pair(self):
+        self.Alphabet = VGroup(self.A, self.B).set_x(0).arrange(buff = 1.0)
+
+class ManualInfection(VGroup):
+    def construct(self):
+        healthy = VGroup()
+
+
+class Test(Scene):
+    def construct(self):
+        self.Staging = Relationship(amount=10)
+        self.Staging
+        self.add(self.Staging.healthy, self.Staging.infected)
+
+
 
 
 if __name__ == "__main__":
     os.system('cls')
     #os.system('manim ".\SIR.py" InfectDots -p')
-    os.system('manim ".\SIR.py" InfectDots -sp')
+    os.system('manim ".\SIR.py" Test -sp')
     #os.system('manim ".\SIR.py" InfectDots -q k -p')
