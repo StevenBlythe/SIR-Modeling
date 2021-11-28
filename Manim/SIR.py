@@ -243,6 +243,8 @@ class Relationship(VGroup):
         # Finish
         super().__init__(**kwargs)
 
+        # TODO: Align to bottom row
+
 
     def arrange_pair(self):
         return VGroup(self.infected, self.healthy).arrange_in_grid(cols=2)
@@ -257,7 +259,7 @@ class ManualInfection(VGroup):
 
 class Test(Scene):
     def construct(self):
-        self.Staging = Relationship(amount=10)
+        self.Staging = Relationship(amount=3)
         self.Staging
         self.add(self.Staging.pair)
 
