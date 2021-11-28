@@ -1,6 +1,14 @@
 from manim import *
 import os
 import math
+#import numpy as np
+from scipy.integrate import odeint
+
+COLOR_MAP = {
+    "S": BLUE,
+    "I": RED,
+    "R": GREY_D,
+}
 
 Colors = [
     "#58C4DD",
@@ -195,43 +203,22 @@ class PredatorPreyModelGraph(Scene):
         self.wait(10)
         self.play(Uncreate(stream_lines))
 
-class DotPairs(VGroup):
-    def __init__(
-        self,
-        pairs = 2,
-        **kwargs
-    ):
-        self.pairs = pairs
-        self.infected = Dot(color=RED)
-        self.healthy = Dot(color=BLUE)
-        self.pair = VGroup(self.infected, self.healthy).set_x(0).arrange(buff=1.0)
-        self.infected_copy = self.infected.copy()
-        super().__init__(**kwargs)
-
-
-class InfectDots(Scene):
-    def construct(self):
-        self.pairdots = DotPairs()
-        self.add(self.pairdots.pair)
-        print()
-        # 1 infects 1, 2 infect 2, 4 infect 4, etc.
-        # Create blue and red dots, place side-by-side
-        # Move red dots to overlap blue dots
-        # Have four iterations.
-        # Grid : [0][0] infects [1][0], [0][1], [1][1]
-
+# Infects 1-1 #
 class Relationship(VGroup):
     def __init__(self, 
         amount = 1,
+        preinfect = 0,
         **kwargs):
         # Initializes amount of pairs (n pairs of infected:healthy)
         self.amount = amount
+        self.preinfect = preinfect
         self.healthy = VGroup()
         self.infected = VGroup()
         self.infected_susceptible = self.infected.copy()
 
         # Populate with dots
-        self.healthy.add(*[Dot(color = BLUE) for n in range(amount)])
+        self.healthy.add(*[Dot(color = BLUE) for n in range(amount - preinfect)])
+        self.healthy.add(*[Dot(color = RED) for n in range(preinfect)])
         self.infected.add(*[Dot(color = RED) for n in range(amount)])
 
         # Arrange into a grid
@@ -244,36 +231,337 @@ class Relationship(VGroup):
         # Finish
         super().__init__(**kwargs)
 
-        # TODO: Align to bottom row
-
-
     def arrange_pair(self):
         return VGroup(self.infected, self.healthy).arrange_in_grid(cols=2)
-    
-    def infect_pair(self):
-        for person in self.healthy:
-            print(person)
-            self.play(Transform(self.healthy, self.infected))
 
-class ManualInfection(VGroup):
-    def construct(self):
-        healthy = VGroup()
-
-
-class Test(Scene):
-    def infect(self, A, B, C): # Healthy, Infected
+class DotsExponentialGrowth(Scene):
+    def infect(self, A, B): # Healthy, Infected
         C = B.copy() # Copy Infected
         self.play(C.animate(lag_ratio=0.1).move_to(A))
         self.play(Uncreate(A), run_time = 0)
-        print(C)
+        return C
 
     def construct(self):
-        self.Staging = Relationship(amount=3)
-        self.add(self.Staging.pair)
-        self.wait(1)
-        self.infect(self.Staging.healthy, self.Staging.infected, self.Staging.infected_susceptible)
-        self.play(Uncreate(self.Staging.healthy))
-        self.wait(1)
+         self.A = Relationship(amount = 1)
+         self.B = Relationship(amount = 2)
+         self.C = Relationship(amount = 4)
+         self.D = Relationship(amount = 8)
+         self.E = Relationship(amount = 16, preinfect = 5)
+
+         examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair, self.E.pair).align_to(self.E.pair, DOWN)
+         examples_full = VGroup(self.A, self.B, self.C, self.D, self.E)
+         examples.arrange_in_grid(cols=5, cell_alignment=DOWN, buff=1)
+         self.add(examples) # Animate this
+
+         for item in examples_full:
+             item.susceptible_infected = self.infect(item.healthy, item.infected)
+             self.wait(0.5)
+
+class DotsLogisticGrowth(Scene):
+    def infect(self, A, B): # Healthy, Infected
+        C = B.copy() # Copy Infected
+        self.play(C.animate(lag_ratio=0.1).move_to(A))
+        self.play(Uncreate(A), run_time = 0)
+        return C
+
+    def construct(self):
+         self.A = Relationship(amount = 1)
+         self.B = Relationship(amount = 2, preinfect = 1)
+         self.C = Relationship(amount = 4, preinfect = 2)
+         self.D = Relationship(amount = 8, preinfect = 4)
+         self.E = Relationship(amount = 16, preinfect = 8)
+
+         examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair, self.E.pair).align_to(self.E.pair, DOWN)
+         examples_full = VGroup(self.A, self.B, self.C, self.D, self.E)
+         examples.arrange_in_grid(cols=5, cell_alignment=DOWN, buff=1)
+         self.add(examples) # Animate this
+         self.wait(2)
+
+         for item in examples_full:
+             item.susceptible_infected = self.infect(item.healthy, item.infected)
+
+# Calculates 100% infections from 0.001% #
+## SCRAPPED, REDO AFTERWARDS ##
+class SIRGraph(VGroup):
+    def __init__(
+        self,
+        color_map = COLOR_MAP,
+        height = 7,
+        width = 5, 
+        **kwargs
+        ):
+        color_map = color_map
+        height = height,
+        width = width
+        super().__init__(**kwargs)
+        self.add_axes()
+        self.add_x_labels()
+    
+    def add_axes(self):
+        axes = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, 1],
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.axes = axes
+    def add_x_labels():
+        self.x_labels = VGroup()
+        self.x_ticks = VGroup()
+
+### SIR GRAPHS ###
+# Always 2x infections
+class SIRGraphExponentialInfections_zeroth(Scene):
+    def construct(self):
+        # Total Population, N:
+        N = 100000
+        # Initial Number of infected and recovered individuals, I0 and R0
+        P0 = 1
+        
+        # Contact Rate, beta, and mean recovery rate, gamma
+        k = 0.6931471805599454
+        # A grid of time points
+        t = np.linspace(0, 365, 366)
+        #t = np.linspace(0, 160, 161)
+
+        # SIR Model
+        def deriv(y, t, N, k):
+            P = y
+            dPdt = k*P
+            return dPdt
+        
+        # Initial conditions vector
+        y0 = P0
+
+        # Integrate the SIR equations over the time grid, t
+        ret = odeint(deriv, y0, t, args=(N, k))
+        P = ret
+
+        # Manim Stuff
+        # Add base axes
+        ax = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, 20, 2],
+            x_axis_config={
+                "include_numbers":True,
+                "decimal_number_config": {"num_decimal_places": 0}
+            },
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.add(ax)
+
+        # Add graph
+        graph_P = ax.plot_line_graph(t, P/N, line_color=RED, add_vertex_dots = False)
+        self.play(
+            Create(graph_P),
+            run_time = 10    
+        )
+
+# Pure infections, no recoveries
+class SIRGraphExponentialInfections_first(Scene):
+    def construct(self):
+        # Total Population, N:
+        N = 100000
+        # Initial Number of infected and recovered individuals, I0 and R0
+        I0, R0 = 1, 0
+        # Everyone else
+        S0 = N - I0 - R0
+        # Contact Rate, beta, and mean recovery rate, gamma
+        beta, gamma = 0.6931471805599454, 0
+        # A grid of time points
+        t = np.linspace(0, 365, 366)
+        #t = np.linspace(0, 160, 161)
+
+        # SIR Model
+        def deriv(y, t, N, beta, gamma):
+            S, I, R = y
+            dSdt = -beta * S * I / N
+            dIdt = beta * S * I / N - gamma * I
+            dRdt = gamma * I
+            return dSdt, dIdt, dRdt
+        
+        # Initial conditions vector
+        y0 = S0, I0, R0
+
+        # Integrate the SIR equations over the time grid, t
+        ret = odeint(deriv, y0, t, args=(N, beta, gamma))
+        S, I, R = ret.T
+
+        # Manim Stuff
+        # Add base axes
+        ax = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, t[-1], t[-1]/8],
+            x_axis_config={
+                "include_numbers":True,
+                "decimal_number_config": {"num_decimal_places": 0}
+            },
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.add(ax)
+
+        # Add graph
+        graph_S = ax.plot_line_graph(t, S/N, line_color=BLUE, add_vertex_dots = False)
+        graph_I = ax.plot_line_graph(t, I/N, line_color=RED, add_vertex_dots = False)
+        graph_R = ax.plot_line_graph(t, R/N, line_color=GRAY_D, add_vertex_dots = False)
+        self.play(
+            Create(graph_S),
+            Create(graph_I),
+            Create(graph_R),
+            run_time = 10         
+        )
+
+class SIRGraphExponentialInfections_second(Scene):
+    def construct(self):
+        # Total Population, N:
+        N = 100000
+        # Initial Number of infected and recovered individuals, I0 and R0
+        I0, R0 = 1, 0
+        # Everyone else
+        S0 = N - I0 - R0
+        # Contact Rate, beta, and mean recovery rate, gamma
+        beta, gamma = 0.6931471805599454, 0
+        # A grid of time points
+        t = np.linspace(0, 32, 33)
+        #t = np.linspace(0, 160, 161)
+
+        # SIR Model
+        def deriv(y, t, N, beta, gamma):
+            S, I, R = y
+            dSdt = -beta * S * I / N
+            dIdt = beta * S * I / N - gamma * I
+            dRdt = gamma * I
+            return dSdt, dIdt, dRdt
+        
+        # Initial conditions vector
+        y0 = S0, I0, R0
+
+        # Integrate the SIR equations over the time grid, t
+        ret = odeint(deriv, y0, t, args=(N, beta, gamma))
+        S, I, R = ret.T
+
+        # Manim Stuff
+        # Add base axes
+        ax = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, t[-1], t[-1]/8],
+            x_axis_config={
+                "include_numbers":True,
+                "decimal_number_config": {"num_decimal_places": 0}
+            },
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.add(ax)
+
+        # Add graph
+        graph_S = ax.plot_line_graph(t, S/N, line_color=BLUE, add_vertex_dots = False)
+        graph_I = ax.plot_line_graph(t, I/N, line_color=RED, add_vertex_dots = False)
+        graph_R = ax.plot_line_graph(t, R/N, line_color=GRAY_D, add_vertex_dots = False)
+        self.play(
+            Create(graph_S),
+            Create(graph_I),
+            Create(graph_R),
+            run_time = 10         
+        )
+
+# Model infections #
+class SIRGraphTest(Scene):
+    def construct(self):
+        # Total Population, N:
+        N = 100000
+        # Initial Number of infected and recovered individuals, I0 and R0
+        I0, R0 = 1, 0
+        # Everyone else
+        S0 = N - I0 - R0
+        # Contact Rate, beta, and mean recovery rate, gamma
+        beta, gamma = 0.2, 1./10
+        # A grid of time points
+        t = np.linspace(0, 365, 366)
+        #t = np.linspace(0, 160, 161)
+
+        # SIR Model
+        def deriv(y, t, N, beta, gamma):
+            S, I, R = y
+            dSdt = -beta * S * I / N
+            dIdt = beta * S * I / N - gamma * I
+            dRdt = gamma * I
+            return dSdt, dIdt, dRdt
+        
+        # Initial conditions vector
+        y0 = S0, I0, R0
+
+        # Integrate the SIR equations over the time grid, t
+        ret = odeint(deriv, y0, t, args=(N, beta, gamma))
+        S, I, R = ret.T
+
+        # Manim Stuff
+        # Add base axes
+        ax = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, t[-1], t[-1]/8],
+            x_axis_config={
+                "include_numbers":True,
+                "decimal_number_config": {"num_decimal_places": 0}
+            },
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.add(ax)
+
+        # Add graph
+        graph_S = ax.plot_line_graph(t, S/N, line_color=BLUE, add_vertex_dots = False)
+        graph_I = ax.plot_line_graph(t, I/N, line_color=RED, add_vertex_dots = False)
+        graph_R = ax.plot_line_graph(t, R/N, line_color=GRAY_D, add_vertex_dots = False)
+        self.play(
+            Create(graph_S),
+            Create(graph_I),
+            Create(graph_R),
+            run_time = 10         
+        )
+        #self.add(graph_S)
+        #self.add(graph_I)
+        #self.add(graph_R)
+
+
+class Test(Scene):
+    def construct(self):
+        self.firstGraph = SIRGraph()
+        self.add(self.firstGraph.axes, self.firstGraph.x_labels, self.firstGraph.x_ticks)
+
+
 
 
 
@@ -281,6 +569,6 @@ class Test(Scene):
 
 if __name__ == "__main__":
     os.system('cls')
-    os.system('manim ".\SIR.py" Test -p')
+    os.system('manim ".\SIR.py" SIRGraphTest -p')
     #os.system('manim ".\SIR.py" Test -sp')
-    #os.system('manim ".\SIR.py" InfectDots -q k -p')
+    #os.system('manim ".\SIR.py" Test -q k -p')
