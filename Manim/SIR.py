@@ -228,6 +228,7 @@ class Relationship(VGroup):
         self.amount = amount
         self.healthy = VGroup()
         self.infected = VGroup()
+        self.infected_susceptible = self.infected.copy()
 
         # Populate with dots
         self.healthy.add(*[Dot(color = BLUE) for n in range(amount)])
@@ -250,7 +251,9 @@ class Relationship(VGroup):
         return VGroup(self.infected, self.healthy).arrange_in_grid(cols=2)
     
     def infect_pair(self):
-        print('infected!')
+        for person in self.healthy:
+            print(person)
+            self.play(Transform(self.healthy, self.infected))
 
 class ManualInfection(VGroup):
     def construct(self):
@@ -258,16 +261,26 @@ class ManualInfection(VGroup):
 
 
 class Test(Scene):
+    def infect(self, A, B, C): # Healthy, Infected
+        C = B.copy() # Copy Infected
+        self.play(C.animate(lag_ratio=0.1).move_to(A))
+        self.play(Uncreate(A), run_time = 0)
+        print(C)
+
     def construct(self):
         self.Staging = Relationship(amount=3)
-        self.Staging
         self.add(self.Staging.pair)
+        self.wait(1)
+        self.infect(self.Staging.healthy, self.Staging.infected, self.Staging.infected_susceptible)
+        self.play(Uncreate(self.Staging.healthy))
+        self.wait(1)
+
 
 
 
 
 if __name__ == "__main__":
     os.system('cls')
-    #os.system('manim ".\SIR.py" InfectDots -p')
-    os.system('manim ".\SIR.py" Test -sp')
+    os.system('manim ".\SIR.py" Test -p')
+    #os.system('manim ".\SIR.py" Test -sp')
     #os.system('manim ".\SIR.py" InfectDots -q k -p')
