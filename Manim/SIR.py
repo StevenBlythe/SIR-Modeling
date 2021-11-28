@@ -236,11 +236,19 @@ class Relationship(VGroup):
         # Arrange into a grid
         self.healthy.arrange_in_grid(rows=amount)
         self.infected.arrange_in_grid(rows=amount)
+
+        # Arrange both pairs:
+        self.pair = self.arrange_pair()
         
+        # Finish
         super().__init__(**kwargs)
 
-    def add_pair(self):
-        self.Alphabet = VGroup(self.A, self.B).set_x(0).arrange(buff = 1.0)
+
+    def arrange_pair(self):
+        return VGroup(self.infected, self.healthy).arrange_in_grid(cols=2)
+    
+    def infect_pair(self):
+        print('infected!')
 
 class ManualInfection(VGroup):
     def construct(self):
@@ -251,7 +259,7 @@ class Test(Scene):
     def construct(self):
         self.Staging = Relationship(amount=10)
         self.Staging
-        self.add(self.Staging.healthy, self.Staging.infected)
+        self.add(self.Staging.pair)
 
 
 
