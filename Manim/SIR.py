@@ -66,6 +66,11 @@ Colors_ten = [
     "#FC6255"
 ]
 
+Colors_two = [
+    PURPLE_E,
+    BLUE_E
+]
+
 class ExponentialGrowth(Scene):
     def construct(self):
         def add_exponential_graph(self, axes, color, c, k):
@@ -158,7 +163,7 @@ class PredatorPreyModelWrong(MovingCameraScene):
             colors=Colors
             )
         self.play(Write(vector_field))
-        self.wait(1)
+        self.wait(3)
         self.play(Uncreate(ax), Uncreate(vector_field))
 
 
@@ -193,13 +198,14 @@ class PredatorPreyModelGraph(Scene):
             y_range = [0.15, 10, 0.5],
             virtual_time = 1.5,
             opacity = 1,
-            stroke_width=0.7,
-            color = PURPLE
+            stroke_width = 1.7,
+            colors = Colors_two
         )
         stream_lines.align_to(dot, DL)
         stream_lines.shift(UP*0.05)
+        self.wait(2)
         self.add(stream_lines)
-        stream_lines.start_animation(warm_up=True, flow_speed=1)
+        stream_lines.start_animation(warm_up=True, flow_speed=1, time_width=0.4)
         self.wait(10)
         self.play(Uncreate(stream_lines))
 
@@ -246,7 +252,7 @@ class DotsExponentialGrowth(Scene):
          self.B = Relationship(amount = 2)
          self.C = Relationship(amount = 4)
          self.D = Relationship(amount = 8)
-         self.E = Relationship(amount = 16, preinfect = 5)
+         self.E = Relationship(amount = 16)
 
          examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair, self.E.pair).align_to(self.E.pair, DOWN)
          examples_full = VGroup(self.A, self.B, self.C, self.D, self.E)
@@ -280,40 +286,41 @@ class DotsLogisticGrowth(Scene):
          for item in examples_full:
              item.susceptible_infected = self.infect(item.healthy, item.infected)
 
+# Removing. Commenting to see if there are any errors.
 # Calculates 100% infections from 0.001% #
 ## SCRAPPED, REDO AFTERWARDS ##
-class SIRGraph(VGroup):
-    def __init__(
-        self,
-        color_map = COLOR_MAP,
-        height = 7,
-        width = 5, 
-        **kwargs
-        ):
-        color_map = color_map
-        height = height,
-        width = width
-        super().__init__(**kwargs)
-        self.add_axes()
-        self.add_x_labels()
-    
-    def add_axes(self):
-        axes = Axes(
-            y_range=[0, 1],
-            y_axis_config={
-                "include_numbers": True,
-                "numbers_to_include": np.arange(0, 1.001, 0.1),
-                "decimal_number_config": {"num_decimal_places": 1}
-            },
-            x_range=[0, 1],
-            axis_config={
-                "include_tip": False,
-            }
-        )
-        self.axes = axes
-    def add_x_labels():
-        self.x_labels = VGroup()
-        self.x_ticks = VGroup()
+#class SIRGraph(VGroup):
+#    def __init__(
+#        self,
+#        color_map = COLOR_MAP,
+#        height = 7,
+#        width = 5, 
+#        **kwargs
+#        ):
+#        color_map = color_map
+#        height = height,
+#        width = width
+#        super().__init__(**kwargs)
+#        self.add_axes()
+#        self.add_x_labels()
+#    
+#    def add_axes(self):
+#        axes = Axes(
+#            y_range=[0, 1],
+#            y_axis_config={
+#                "include_numbers": True,
+#                "numbers_to_include": np.arange(0, 1.001, 0.1),
+#                "decimal_number_config": {"num_decimal_places": 1}
+#            },
+#            x_range=[0, 1],
+#            axis_config={
+#                "include_tip": False,
+#            }
+#        )
+#        self.axes = axes
+#    def add_x_labels():
+#        self.x_labels = VGroup()
+#        self.x_ticks = VGroup()
 
 ### SIR GRAPHS ###
 # Always 2x infections
@@ -431,6 +438,7 @@ class SIRGraphExponentialInfections_first(Scene):
             run_time = 10         
         )
 
+# Same as previous, zoomed-in graph.
 class SIRGraphExponentialInfections_second(Scene):
     def construct(self):
         # Total Population, N:
@@ -491,8 +499,71 @@ class SIRGraphExponentialInfections_second(Scene):
             run_time = 10         
         )
 
+# From all infected to no infected.
+# Same as previous, zoomed-in graph.
+class SIRGraphExponentialInfections_third(Scene):
+    def construct(self):
+        # Total Population, N:
+        N = 100000
+        # Initial Number of infected and recovered individuals, I0 and R0
+        I0, R0 = 100000, 0
+        # Everyone else
+        S0 = N - I0 - R0
+        # Contact Rate, beta, and mean recovery rate, gamma
+        beta, gamma = 0, 0.2
+        # A grid of time points
+        t = np.linspace(0, 32, 33)
+        #t = np.linspace(0, 160, 161)
+
+        # SIR Model
+        def deriv(y, t, N, beta, gamma):
+            S, I, R = y
+            dSdt = -beta * S * I / N
+            dIdt = beta * S * I / N - gamma * I
+            dRdt = gamma * I
+            return dSdt, dIdt, dRdt
+        
+        # Initial conditions vector
+        y0 = S0, I0, R0
+
+        # Integrate the SIR equations over the time grid, t
+        ret = odeint(deriv, y0, t, args=(N, beta, gamma))
+        S, I, R = ret.T
+
+        # Manim Stuff
+        # Add base axes
+        ax = Axes(
+            y_range=[0, 1],
+            y_axis_config={
+                "include_numbers": True,
+                "numbers_to_include": np.arange(0, 1.001, 0.1),
+                "decimal_number_config": {"num_decimal_places": 1}
+            },
+            x_range=[0, t[-1], t[-1]/8],
+            x_axis_config={
+                "include_numbers":True,
+                "decimal_number_config": {"num_decimal_places": 0}
+            },
+            axis_config={
+                "include_tip": False,
+            }
+        )
+        self.add(ax)
+
+        # Add graph
+        graph_S = ax.plot_line_graph(t, S/N, line_color=BLUE, add_vertex_dots = False)
+        graph_I = ax.plot_line_graph(t, I/N, line_color=RED, add_vertex_dots = False)
+        graph_R = ax.plot_line_graph(t, R/N, line_color=GRAY_D, add_vertex_dots = False)
+        self.play(
+            Create(graph_S),
+            Create(graph_I),
+            Create(graph_R),
+            run_time = 5      
+        )
+
+# Normal infection count #
 # Model infections #
-class SIRGraphTest(Scene):
+class SIRGraphNormal_first(Scene):
     def construct(self):
         # Total Population, N:
         N = 100000
@@ -555,13 +626,119 @@ class SIRGraphTest(Scene):
         #self.add(graph_I)
         #self.add(graph_R)
 
+# Reproduction Number Scene -- R0 < 1, = 1, > 1
+# Infects 1-1 #
+class RelationshipReproduction(VGroup):
+    def __init__(self, 
+        amount = 1,
+        color = BLUE,
+        **kwargs):
+        # Initializes amount of dots
+        self.amount = amount
+        self.color = color
+        self.population = VGroup()
 
-class Test(Scene):
+        # Populate with dots
+        self.population.add(*[Dot(color = self.color) for n in range(amount)])
+
+        # Arrange into a grid
+        self.population.arrange_in_grid(rows=amount)
+
+        
+        # Finish
+        super().__init__(**kwargs)
+
+    def arrange_pair(self):
+        return VGroup(self.infected, self.healthy).arrange_in_grid(cols=2)
+
+class ReproductionNumber(Scene):        
     def construct(self):
-        self.firstGraph = SIRGraph()
-        self.add(self.firstGraph.axes, self.firstGraph.x_labels, self.firstGraph.x_ticks)
+        # higher
+        self.higher1 = RelationshipReproduction(amount = 1, color = RED)
+        self.higher2 = RelationshipReproduction(amount = 2)
+        self.higher3 = RelationshipReproduction(amount = 4)
+        self.higher4 = RelationshipReproduction(amount = 8)
+        self.higher5 = RelationshipReproduction(amount = 16)
+        higher = VGroup(self.higher1.population, self.higher2.population, self.higher3.population, self.higher4.population, self.higher5.population).arrange_in_grid(cols = 5, cell_alignment=DOWN, buff=0.5)
+
+        # Stagnant
+        self.stagnant1 = RelationshipReproduction(amount = 16, color = RED)
+        self.stagnant2 = RelationshipReproduction(amount = 16)
+        self.stagnant3 = RelationshipReproduction(amount = 16)
+        self.stagnant4 = RelationshipReproduction(amount = 16)
+        self.stagnant5 = RelationshipReproduction(amount = 16)
+        stagnant = VGroup(self.stagnant1.population, self.stagnant2.population, self.stagnant3.population, self.stagnant4.population, self.stagnant5.population).arrange_in_grid(cols = 5, cell_alignment=DOWN, buff=0.5)
+
+        # higher
+        self.lower1 = RelationshipReproduction(amount = 16, color = RED)
+        self.lower2 = RelationshipReproduction(amount = 8)
+        self.lower3 = RelationshipReproduction(amount = 4)
+        self.lower4 = RelationshipReproduction(amount = 2)
+        self.lower5 = RelationshipReproduction(amount = 1)
+        lower = VGroup(self.lower1.population, self.lower2.population, self.lower3.population, self.lower4.population, self.lower5.population).arrange_in_grid(cols = 5, cell_alignment=DOWN, buff=0.5)
+
+        # All
+        collection = VGroup(higher, stagnant, lower).arrange_in_grid(cols=3, cell_alignment=DOWN, buff = 1)
+        self.add(higher, stagnant, lower)
+
+        # Infect
+        # R > 1
+        for i in range(4):
+            for dot in higher[i]:
+                dot.set_color(RED)
+            C = VGroup()
+            for dot in higher[i]:
+                C.add(dot.copy(), dot.copy())
+            self.play(C.animate(lag_ratio=0.1).arrange_in_grid(cols=1, cell_alignment=DOWN).move_to(higher[i+1]))
+
+        # R = 1
+        for i in range(4):
+            for dot in stagnant[i]:
+                dot.set_color(RED)
+            C = VGroup()
+            for dot in stagnant[i]:
+                C.add(dot.copy())
+            self.play(C.animate(lag_ratio=0.1).arrange_in_grid(cols=1, cell_alignment=DOWN).move_to(stagnant[i+1]))
+
+        # R > 1
+        for i in range(4):
+            for dot in lower[i]:
+                dot.set_color(RED)
+            C = VGroup()
+            # Adds an even tracker
+            j = 0
+            for dot in lower[i]:
+                j += 1
+                if j % 2 == 0:
+                    C.add(dot.copy())
+            print(len(C))
+            self.play(C.animate(lag_ratio=0.1).arrange_in_grid(cols=1, cell_alignment=DOWN).move_to(lower[i+1]))
+
+        self.wait(1)
 
 
+class DotsReproductionNumber(Scene):
+    def infect(self, A, B): # Healthy, Infected
+        C = B.copy() # Copy Infected
+        self.play(C.animate(lag_ratio=0.1).move_to(A))
+        self.play(Uncreate(A), run_time = 0)
+        return C
+
+    def construct(self):
+         self.A = Relationship(amount = 1)
+         self.B = Relationship(amount = 2)
+         self.C = Relationship(amount = 4)
+         self.D = Relationship(amount = 8)
+         self.E = Relationship(amount = 16, preinfect = 5)
+
+         examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair, self.E.pair).align_to(self.E.pair, DOWN)
+         examples_full = VGroup(self.A, self.B, self.C, self.D, self.E)
+         examples.arrange_in_grid(cols=5, cell_alignment=DOWN, buff=1)
+         self.add(examples) # Animate this
+
+         for item in examples_full:
+             item.susceptible_infected = self.infect(item.healthy, item.infected)
+             self.wait(0.5)
 
 
 
@@ -569,6 +746,6 @@ class Test(Scene):
 
 if __name__ == "__main__":
     os.system('cls')
-    os.system('manim ".\SIR.py" SIRGraphTest -p')
+    os.system('manim ".\SIR.py" ReproductionNumber -sp')
     #os.system('manim ".\SIR.py" Test -sp')
     #os.system('manim ".\SIR.py" Test -q k -p')

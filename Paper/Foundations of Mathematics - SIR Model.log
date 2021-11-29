@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.16)  25 NOV 2021 00:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.16)  29 NOV 2021 06:06
 entering extended mode
 **"C:/Users/Nexus/Personal/Programming/Github/SIR Modeling/SIR-Modeling/Paper/F
 oundations of Mathematics - SIR Model.tex"
@@ -716,25 +716,12 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [7]
-
-LaTeX Warning: Reference `fig1' on page 8 undefined on input line 370.
-
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 385.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 341.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 7.59998pt on input line 341.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 385.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <7> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 385.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 385.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <5> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 385.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 4.74998pt on input line 385.
-
-Package amsmath Warning: Foreign command \over;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 464.
+(Font)              scaled to size 7.59998pt on input line 343.
 
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
@@ -745,13 +732,6 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [8]
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 491.
-LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 7.59998pt on input line 491.
-LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 493.
-
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -761,6 +741,9 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -782,19 +765,7 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
 [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (8.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
-
-[12]
-Overfull \hbox (1.58917pt too wide) in paragraph at lines 522--524
+Overfull \hbox (1.58917pt too wide) in paragraph at lines 372--374
 []\OT1/phv/m/n/10 https://www.maa.org/press/periodicals/loci/joma/the-sir-model
 -for-spread-
  []
@@ -807,7 +778,7 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[13]
+[12]
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -816,7 +787,7 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[14]
+[13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -828,7 +799,7 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[15]
+[14]
 
 Package fancyhdr Warning: \headheight is too small (8.0pt): 
 (fancyhdr)                Make it at least 12.0pt, for example:
@@ -837,22 +808,19 @@ Package fancyhdr Warning: \headheight is too small (8.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.0pt}.
 
-[16] (Foundations of Mathematics - SIR Model.aux)
-
-LaTeX Warning: There were undefined references.
-
+[15] (Foundations of Mathematics - SIR Model.aux)
 Package rerunfilecheck Info: File `"Foundations of Mathematics - SIR Model".out
 ' has not changed.
-(rerunfilecheck)             Checksum: 48B80862E83CEDE93E921909C7562D2D;4188.
+(rerunfilecheck)             Checksum: DC147EB45ED087A5946A23355EA73B2B;3408.
  ) 
 Here is how much of TeX's memory you used:
- 13914 strings out of 478927
- 209434 string characters out of 2850180
- 635637 words of memory out of 3000000
- 31314 multiletter control sequences out of 15000+600000
- 437360 words of font info for 94 fonts, out of 8000000 for 9000
+ 13887 strings out of 478927
+ 209140 string characters out of 2850180
+ 635484 words of memory out of 3000000
+ 31298 multiletter control sequences out of 15000+600000
+ 436288 words of font info for 92 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 72i,12n,81p,735b,558s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,12n,81p,735b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/enc/dvips/base/8r.en
 c}<C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmex10.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/
@@ -860,15 +828,14 @@ public/amsfonts/cm/cmmi10.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nexus/Personal/Programmin
 g/MikTex/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nexus/Person
 al/Programming/MikTex/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users
-/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/public/amsfonts/symbols/m
-sam10.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/urw/he
-lvetic/uhvb8a.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type
-1/urw/helvetic/uhvr8a.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fo
-nts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "Foundations of Mathematics - SIR Model.pdf" (17 pages, 14851
+/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><
+C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/urw/helvetic/uhvr
+8a.pfb><C:/Users/Nexus/Personal/Programming/MikTex/MiKTeX/fonts/type1/urw/helve
+tic/uhvro8a.pfb>
+Output written on "Foundations of Mathematics - SIR Model.pdf" (16 pages, 12942
 4 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
