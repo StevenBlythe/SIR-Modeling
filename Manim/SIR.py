@@ -336,7 +336,7 @@ class DotsLogisticGrowth(Scene):
 # Always 2x infections
 class SIRGraphExponentialInfections_zeroth(Scene):
     def construct(self):
-        self.camera.background_color = "#ffffff"
+        self.camera.background_color = WHITE
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -370,7 +370,7 @@ class SIRGraphExponentialInfections_zeroth(Scene):
                 "numbers_to_include": np.arange(0, 1.001, 0.1),
                 "decimal_number_config": {"num_decimal_places": 1}
             },
-            x_range=[0, 20, 2],
+            x_range=[0, 18, 2],
             x_axis_config={
                 "include_numbers":True,
                 "decimal_number_config": {"num_decimal_places": 0}
@@ -378,18 +378,11 @@ class SIRGraphExponentialInfections_zeroth(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
-        self.add(ax, labels)
-        self.wait(2)
-
-        # Add graph
-        graph_P = ax.plot_line_graph(t, P/N, line_color=RED, add_vertex_dots = False)
-        self.play(
-            Create(graph_P),
-            run_time = 10    
-        )
-        self.wait(2)
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
+        graph_P = ax.plot_line_graph(t, P/N, add_vertex_dots = False).set_color(BLACK)
+        self.add(ax, labels, graph_P)
+        self.wait(1)
 
 # Pure infections, no recoveries
 class SIRGraphExponentialInfections_first(Scene):
@@ -439,8 +432,8 @@ class SIRGraphExponentialInfections_first(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
         self.add(ax, labels)
 
         # Add graph
@@ -503,8 +496,8 @@ class SIRGraphExponentialInfections_second(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
         self.add(ax, labels)
 
         # Add graph
@@ -568,8 +561,8 @@ class SIRGraphExponentialInfections_third(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
         self.add(ax, labels)
 
         # Add graph
@@ -633,8 +626,8 @@ class SIRGraphNormal_first(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
         self.add(ax, labels)
 
         # Add graph
@@ -697,8 +690,8 @@ class SIRGraphNormal_second(Scene):
             axis_config={
                 "include_tip": False,
             }
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P%")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P%").set_color(BLACK)
         self.add(ax, labels)
 
         # Add graph

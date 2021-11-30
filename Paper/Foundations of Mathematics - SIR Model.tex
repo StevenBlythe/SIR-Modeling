@@ -252,7 +252,9 @@ Let us take a look at what our graph looks like when $\alpha = 2$, $\beta = 1.6$
 
 Looking at our graph, we can see our Rabbit population and Fox population dance around a point in the graph. Here, the graph is moving about the system's equilibrium point. Let us take a look at how $R$ and $F$ grow and decay as time goes on in a $R-t$ and $F-t$ graph:
 
-\[ Graph Here \]
+\begin{center}
+  \includegraphics[width=10cm]{RT Graph}
+\end{center}
 % Rt graph, Ft graph, both together at once
 
 Here, we can see there are times when our Rabbit population will grow until the population hits a peak and begin to shrink again, repeating the process over again. The Fox population exhibits a similar graph. However, when we stack both graphs ontop of each other, we can see the peak for the Fox population occurs right after the Rabbit population peak. In addition, we can see as the Fox population decreases, the Rabbit population benefits and begins to grow once more.
@@ -294,43 +296,60 @@ Let us put a pin on our differential equations and let us visualize portions of 
 
 First, let us consider how fast an infection can spread starting from one individual. Let us assume all infected individuals remain infected and each infected individual infects one non-infected individual at each time step.
 
-\[ Model here \]
+\begin{center}
+  \includegraphics[width=5cm]{DotsPre}
+  \quad
+  \includegraphics[width=5cm]{DotsPost}
+\end{center}
 % 1 infected to 1 -> 2
 % 2 infected to 2 -> 4
 % 4 infected to 4 -> 8
 
 Looking at our model, we can see our number of infected individuals double after every time interval. If the time step is one day, that means we will have a population of 16 infected individuals after 4 days. What would happen if we let this simulation run for more days? How long would it take to infect our entire population? If we let our population be $100000$, how long would it take to infect everyone starting from one infected individual?
 
-\[ Graph Here \]
-% aI %
+\begin{center}
+  \includegraphics[width=5cm]{ExponentialGrowth}
+\end{center}
 
-The growth at the start of our graph starts out slow. It takes time for the infection to catch wind and start spreading fast throughout the population. Fortunately for us, infections cannot exhibit such exponential growth. Consider this: If the population is roughly $100\%$ susceptible, then the individuals that the infected person comes into contact with is roughly $100\%$. If $50\%$ of the population is susceptible, then the infected should expect its contacted people to be about $50\%$ susceptible. Here, let us visualize the infected person's interactions:
+The growth at the start of our graph starts out slow. It takes time for the infection to catch wind and start spreading fast throughout the population. Fortunately for us, infections cannot exhibit such exponential growth. Consider this: If the population is roughly $100\%$ susceptible, then the individuals that the infected person comes into contact with is roughly $100\%$. If $50\%$ of the population is susceptible, then the infected should expect its contacted people to be about $50\%$ susceptible. Here, let us visualize the infected person's interactions if the population is $50\%$ infected:
 
-\[ Image here \]
+\begin{center}
+  \includegraphics[width=5cm]{DotsLogisticPre}
+  \quad
+  \includegraphics[width=5cm]{DotsLogisticPost}
+\end{center}
 % 1 to 10 | 1 to 5/5 | 1 to 0/10
 
-Here, recall we modified our first population model and created a logistic population model. Let us see how a logistic growth can change the way our model runs:
+Here, recall we modified our first population model and created a logistic population model. Let us see how a logistic growth can change the way our model runs where the blue line represents susceptible individuals and the red line represents infected individuals:
 
-\[ Graph here \]
+\begin{center}
+  \includegraphics[width=5cm]{SIRLogistic}
+\end{center}
 % Logistic Growth Curve
 
 Here, our graph exhibits a slow growth at the start, a rapid growth when our population is roughly $50\%$ infected, then a slow growth as our infected population reaches $100\%$.
 
-Now, we know when we become infected, we can recover from the infection. Now, let us make the assumption that once an individual recovers from an infection, the individual becomes immune to the infection. Let us consider a population made up of $100\%$ infected individuals. If infected individuals become recovered at a rate of $\beta$. Here is what our graph looks like when our population can recover from the infection:
+Now, we know when we become infected, we can recover from the infection. Now, let us make the assumption that once an individual recovers from an infection, the individual becomes immune to the infection. Let us consider a population made up of $100\%$ infected individuals. If infected individuals become recovered at a rate of $\beta$. In the graph, we have lines representing infected and recovered individuals with the addition of a gray line representing recovered individuals. Here is what our graph looks like when our population can recover from the infection:
 
-\[ Graph here \]
+\begin{center}
+  \includegraphics[width=5cm]{SIRDecay}
+\end{center}
 % Exponential decay curve
 
 How would our graph look like if we let our population become infected and recover from the infection?
 
-\[ Graph here \]
+\begin{center}
+  \includegraphics[width=5cm]{SIRGraph}
+\end{center}
 % SIR Model
 
 This graph represents our SIR model. Other SIR models consider many more factors, such as increasing population, vaccinations rates, mask rates, and so on.
 
 Why might our infection grow? In epidemiology, diseases are  associated with a reproduction number. This reproduction number is the average number of people an infected individual can infect before the infected individual can recover. As an outbreak ensues, the infection's reproduction number, R, changes. When an infection begins, the infection's initial $R$ is considered $R_0$. What might $R$ look like if $R_0$ is greater than $1$?
 
-\[ Images here \]
+\begin{center}
+  \includegraphics[width=10cm]{ReproductionNumber}
+\end{center}
 % R_0 > 1 | R = 1 | R < 1
 
 % -- 1 -- https://www.news-medical.net/health/What-is-R0.aspx %
