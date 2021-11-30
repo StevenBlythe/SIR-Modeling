@@ -27,7 +27,7 @@
 % End of pile of commands that makes the header!
 
 % FIRST PAGE NUMBER
-\setcounter{page}{0}                  %%%%%%%
+\setcounter{page}{43}                   %%%%%%%
 \setlength{\textwidth}{4.4in}          %%%%%%%
 \setlength{\textheight}{7.0in}         %%%%%%%
 \setlength{\evensidemargin}{1in}       %%%%%%%
@@ -74,18 +74,18 @@
 \begin{center}
 \begin{picture}(256,56)
 \put(63,37){\textbf{Proceedings of the Stockton}}
-% \put(55,23){\textbf{University Mathematics Seminar}}
-\put(79,23){\textbf{Mathematics Seminar}}
-%\put(85,11){\tiny{Presented on [date of the presentation]}}
-%\put(0,0){\framebox(255,54){}}
-%\put(2,2){\framebox(251,50){}}
-%\put(8,10){\includegraphics[scale = .55]{Stockton.png}}
-%\put(210,10){\includegraphics[scale = .5]{Sigma.png}}
+\put(55,23){\textbf{University Mathematics Seminar}}
+%\put(79,23){\textbf{Mathematics Seminar}}
+\put(85,11){\tiny{Presented on November 29, 2021}}
+\put(0,0){\framebox(255,54){}}
+\put(2,2){\framebox(251,50){}}
+\put(8,10){\includegraphics[scale = .55]{Stockton.png}}
+\put(210,10){\includegraphics[scale = .5]{Sigma.png}}
 \end{picture}
 \end{center}
 
-\title[Running Title (shorter)]
-{SIR Modeling and Covid}
+\title[Building Models for Infectious Diseases]
+{Building Models for Infectious Diseases with Differential Equations}
 
 \author{Steven Blythe}
 \email{StevenBlytheSU@gmail.com}
@@ -94,7 +94,7 @@
 \keywords{}
 
 \begin{abstract}
-ABSTRACT HERE
+The real world has a lot of systems where we want to model how portions of a given system changes as time passes. What are these systems and what are their limitations? In this paper, we look at how we can build models using differential equations starting with models with limited variables. Once we create our first model for our first scenario, we will see how we can shape and mold our existing model to fit more complex scenarios.
 
 \end{abstract}
 
@@ -308,7 +308,7 @@ First, let us consider how fast an infection can spread starting from one indivi
 Looking at our model, we can see our number of infected individuals double after every time interval. If the time step is one day, that means we will have a population of 16 infected individuals after 4 days. What would happen if we let this simulation run for more days? How long would it take to infect our entire population? If we let our population be $100000$, how long would it take to infect everyone starting from one infected individual?
 
 \begin{center}
-  \includegraphics[width=5cm]{ExponentialGrowth}
+  \includegraphics[width=10cm]{ExponentialGrowth}
 \end{center}
 
 The growth at the start of our graph starts out slow. It takes time for the infection to catch wind and start spreading fast throughout the population. Fortunately for us, infections cannot exhibit such exponential growth. Consider this: If the population is roughly $100\%$ susceptible, then the individuals that the infected person comes into contact with is roughly $100\%$. If $50\%$ of the population is susceptible, then the infected should expect its contacted people to be about $50\%$ susceptible. Here, let us visualize the infected person's interactions if the population is $50\%$ infected:
@@ -323,7 +323,7 @@ The growth at the start of our graph starts out slow. It takes time for the infe
 Here, recall we modified our first population model and created a logistic population model. Let us see how a logistic growth can change the way our model runs where the blue line represents susceptible individuals and the red line represents infected individuals:
 
 \begin{center}
-  \includegraphics[width=5cm]{SIRLogistic}
+  \includegraphics[width=10cm]{SIRLogistic}
 \end{center}
 % Logistic Growth Curve
 
@@ -332,14 +332,14 @@ Here, our graph exhibits a slow growth at the start, a rapid growth when our pop
 Now, we know when we become infected, we can recover from the infection. Now, let us make the assumption that once an individual recovers from an infection, the individual becomes immune to the infection. Let us consider a population made up of $100\%$ infected individuals. If infected individuals become recovered at a rate of $\beta$. In the graph, we have lines representing infected and recovered individuals with the addition of a gray line representing recovered individuals. Here is what our graph looks like when our population can recover from the infection:
 
 \begin{center}
-  \includegraphics[width=5cm]{SIRDecay}
+  \includegraphics[width=10cm]{SIRDecay}
 \end{center}
 % Exponential decay curve
 
 How would our graph look like if we let our population become infected and recover from the infection?
 
 \begin{center}
-  \includegraphics[width=5cm]{SIRGraph}
+  \includegraphics[width=10cm]{SIRGraph}
 \end{center}
 % SIR Model
 
@@ -353,72 +353,30 @@ Why might our infection grow? In epidemiology, diseases are  associated with a r
 % R_0 > 1 | R = 1 | R < 1
 
 % -- 1 -- https://www.news-medical.net/health/What-is-R0.aspx %
-To give a perspective, the common cold has an $R_0$ of about $2-3$ and Measles has an $R_0$ of $12-18$.
+To give a perspective, the common cold has an $R_0$ of about $2-3$ and Measles has an $R_0$ of $12-18$ \cite{Shabir}.
 
 How might we start looking for $R_0$? To begin, we can look at how many days it would take for an infected individual to infect one person. In addition, we may look at how long it will take for an infected person to recover. For example, if a person infects one person every four days and it takes the infected individual eight days to recover, we can expect $R_0$ to be $2$. However, if it takes two days to recover, then $R_0$ would be $0.5$.
 
 % -- 2 -- https://www.cdc.gov/coronavirus/2019-ncov/php/contact-tracing/contact-tracing-plan/prioritization/mathematicalmodeling.html %
-If we can make $R < 1$, then we have reached herd immunity. We can lower $R$ through measures such as quarantining, contact tracing, and vaccine campaigns.
+If we can make $R < 1$, then we have reached herd immunity. We can lower $R$ through measures such as quarantining, contact tracing, and vaccine campaigns \cite{CDC}.
 
 \newpage
-
-And finally, the references you used (if any):
 
 \bibliographystyle{plain}
 \begin{thebibliography}{12}
+\bibitem{Shabir}
+Osman Shabir, {\it What is $R_0$?},
+News Medical Life Sciences,
+available at \url{https://www.news-medical.net/health/What-is-R0.aspx},
+February 16, 2021.
 
-\bibitem{milnor}
-John Milnor, {\it
- American Mathematical Monthly}
-    {\bf 85} (7), August-September 1978, 521--528.
-
- \smallskip
-
-    \bibitem{alexandrov}
-    P.~S.~Aleksandrov, {\it Combinatorial Topology},
-    Dover Publications, 1998.
-
-
+\bibitem{CDC}
+CDC, {\it Prioritizing COVID-19 Contact Tracing Mathematical Modeling Methods and Findings},
+Centers for Disease Control and Prevention,
+available at \url{https://www.news-medical.net/health/What-is-R0.aspx},
+November 23, 2020.
 \end{thebibliography}
-
 % --1-- https://www.news-medical.net/health/What-is-R0.aspx
 
-\newpage
-\section{Paul's Online Notes}
-https://tutorial.math.lamar.edu/Classes/DE/DE.aspx\\
-\lipsum[0-2]
-
-\section{Differential Equations by Paul Blanchard, Robert Devaney, Glen Hall}
-\underline{Unlimited Growth}\\ % 4
-\lipsum[2-4]\\
-\underline{Logistic Population Models}\\ % 9
-\lipsum[4-6]\\
-\underline{Predator-Prey System}\\ % 12, 150
-\lipsum[6-8]\\
-\underline{The SIR Model of an epidemic}\\ % 210
-\lipsum[8-10]
-
-\section{The SIR Model for Spread of Disease}
-https://www.maa.org/press/periodicals/loci/joma/the-sir-model-for-spread-of-disease-the-differential-equation-model\\
-\lipsum[0-2]
-
-\section{COVID-19 Futures, Explained with Simulations}
-https://ncase.me/covid-19/\\
-\lipsum[3-5]
-
-\section{How Outbreaks Like Coronavirus Spread Exponentially, and How To "Flatten the Curve"}
-https://www.washingtonpost.com/graphics/2020/world/corona-simulator/\\
-\lipsum[1-3]
-
-\section{Modeling Exponential Growth}
-https://www.youtube.com/watch?v=Kas0tIxDvrg\\
-\lipsum[2-3]
-
-\section{Modeling COVID-19 with Differential Equations}
-% https://julia.quantecon.org/continuous_time/seir_model.html \\
-\lipsum[3-4]
 \end{sansmath}
-
-
-
 \end{document}
