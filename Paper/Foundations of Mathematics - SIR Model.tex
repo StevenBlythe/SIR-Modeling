@@ -14,6 +14,7 @@
 \usepackage{lipsum}  % Lorem Ipsum placeholder text for the outline.
 \input xy
 \usepackage{subfig}
+\graphicspath{ {./Images/} }
 \xyoption{all}
 
 \usepackage{fancyhdr} %Package that allows for neat headers
@@ -144,14 +145,17 @@ This is the general solution for our system. Remember, $k$ is our rate of growth
 \end{align*}
 
 Here, we a specific solution for our initial condition, $P(t_0) = 10$. We can plot the specific solution to predict our population growth. Now, let us consider a few initial conditions for our starting population. Remember, population should be non-negative. Let us let $P(t_0)$ be $0$ first.
-
-\[ Graph here \]
+\begin{center}
+  \includegraphics[width=10cm]{ExponentialGrowthSingle}
+\end{center}
 % Graph here | c = 0,
 
 Looking at the graph, we can see our population is always $0$ for all of $t$. Now, let us consider a few other examples, such as $P(t_0) = 0, 0.5, 1, 1.5, \ldots, 10$.
 
-\[ Graph here \]
 % Graph here | c = 100, 200, 500
+\begin{center}
+  \includegraphics[width=10cm]{ExponentialGrowGroup}
+\end{center}
 
 \section{Logistic Population Model}
 
@@ -185,14 +189,18 @@ Here, we can use our general solution to help us plot different particular solut
 
 What can we expect to find with our graph? Will our initial condition always grow to infinity, or can we expect to experience a decay after a period of growth? Here, let us plot a few particular solutions. % For N, k
 
-\[ Graph here: one c \]
+\begin{center}
+  \includegraphics[width=10cm]{LogisticSingle}
+\end{center}
 % P = lambda t : -(2*math.e**(k * t + c))/( 1 - math.e**(k * t + c) )
 
 Here, we can see our solution approaches a certain value, the equillibria, in the graph and slows down its growth or decay. When we are above this line, we see our solution is always decaying. When we are below this line, we see our solution is always growing. Eventually, the growth and decay slows down to a halt.
 
 What does this graph tell us? Looking at this graph, we can predict the growth or decay of our rabbit population. If we pick a point underneath the equillibria, then we should expect our population to grow until our population reaches the threshold. If we pick a point above this line, we should expect our population to decay until we reach the threshold.
 
-\[ Graph here: Multiple c \]
+\begin{center}
+  \includegraphics[width=10cm]{LogisticGroup}
+\end{center}
 % Produce the graph.
 
 \section{Predator-Prey Sytems}
@@ -214,7 +222,7 @@ Taking a look at our scenario and parameters, we can find the following model:
 Here, $\alpha$ and $\beta$ are constant values. We can see as the fox population increases, more rabits are hunted and removed from the population. However, note that $F$ is a variable similar as $R$. If we can model $R$, how might we model $F$?
 
 Since we know foxes benefit from interacting with rabbits, what would happen if all the rabbits disappeared from the area? Those foxes depend on rabbits to sustain their population. Without rabbits, we can expect the fox population to decline at a given rate. Let us consider a few more parameters:
-
+\newpage
 \begin{enumerate}
   \item F: Fox Population
   \item $\gamma$: Decay-rate for Foxes
@@ -224,10 +232,10 @@ Since we know foxes benefit from interacting with rabbits, what would happen if 
 
 Here, let us take a look at our model for the Rabbit population and our new model for the Fox population:
 
-\begin{align}
+\begin{align*}
   \frac{dR}{dt} & = \alpha R - \beta RF\\
   \frac{dF}{dt} & = -\gamma F + \delta FR
-\end{align}
+\end{align*}
 
 Here, we can see a relationship between the Rabbit population and the Fox population. This first-order system have variables which depend on each other. The size of the Rabbit population is dependent on the size of the Fox population and vice versa.
 % Note that when the Fox population is empty, or $F = 0$, then the Rabbit population can be written as:
@@ -236,7 +244,10 @@ Here, we can see a relationship between the Rabbit population and the Fox popula
 %\end{align}
 Let us take a look at what our graph looks like when $\alpha = 2$, $\beta = 1.6$, $\gamma = 1$, and $\delta = 0.8$
 
-\[ Graph Here \]
+\begin{center}
+  \includegraphics[width=10cm]{PredatorPreyModel}
+\end{center}
+
 % Graph here
 
 Looking at our graph, we can see our Rabbit population and Fox population dance around a point in the graph. Here, the graph is moving about the system's equilibrium point. Let us take a look at how $R$ and $F$ grow and decay as time goes on in a $R-t$ and $F-t$ graph:
