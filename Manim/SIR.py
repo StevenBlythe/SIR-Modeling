@@ -76,19 +76,19 @@ class ExponentialGrowth(Scene):
         def add_exponential_graph(self, axes, color, c, k):
             f = lambda t : c*math.e**(k*t)
             graph = axes.plot(
-                f, x_range=[0, 20], color = color
+                f, x_range=[0, 20], color = BLACK
             )
             return graph
         
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = WHITE
         # Create our exponential graph
         ax = Axes(
             x_range=[0, 20, 2],
             y_range=[0, 20, 2],
             tips=False,
-            axis_config={"include_numbers": True}
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P")
+            axis_config={"include_numbers": True, "color": BLACK}
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P").set_color(BLACK)
         self.play(Create(ax), Create(labels), run_time=2)
         self.wait(1)
 
@@ -104,9 +104,9 @@ class ExponentialGrowth(Scene):
         # Add a point and track the value.
 
         # Create other solutions
-        for i in range(0, 20, 1):
+        for i in range(0, 37, 1):
             if i != 2:
-                graphs = add_exponential_graph(self, ax, Colors[i], i/2, k)
+                graphs = add_exponential_graph(self, ax, BLACK, i/2, k)
                 self.play(Write(graphs), run_time=1)
         self.wait(2)
 
@@ -116,18 +116,18 @@ class ExponentialDecay(Scene):
             b = (10/c) - 1
             f = lambda t : N/(1 + b*math.e**(-k*t))
             graph = axes.plot(
-                f, x_range=[0, 20], color = color
+                f, x_range=[0, 20], color = BLACK
             )
             return graph
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Create our exponential graph
         ax = Axes(
             x_range=[0, 20, 2],
             y_range=[0, 20, 2],
             tips=False,
             axis_config={"include_numbers": True}
-        )
-        labels = ax.get_axis_labels(x_label="t", y_label="P")
+        ).set_color(BLACK)
+        labels = ax.get_axis_labels(x_label="t", y_label="P").set_color(BLACK)
         self.play(Create(ax), Create(labels), run_time=2)
         self.wait(1)
 
@@ -144,15 +144,15 @@ class ExponentialDecay(Scene):
 
         # Create other solutions
         # Colors for the lines
-        for i in range(1, 40, 1):
-            if i != c*2:
-                graphs = add_exponential_graph(self, ax, Colors[i], i/2, k, N)
-                self.play(Write(graphs), run_time=1)
-        self.wait(2)
+        #for i in range(1, 41, 2):
+        #    if i != c*2:
+        #        graphs = add_exponential_graph(self, ax, Colors[i], i/2, k, N)
+        #        self.play(Write(graphs), run_time=1)
+        #self.wait(2)
 
 class PredatorPreyModelWrong(MovingCameraScene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Standard axes
         ax = Axes(
             tips=False
@@ -172,7 +172,7 @@ class PredatorPreyModelWrong(MovingCameraScene):
 
 class PredatorPreyModelGraph(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         f = lambda pos : (2 * pos[0] - 1.6 * pos[0] * pos[1])* RIGHT + (-1 * pos[1] + 0.8 * pos[1] * pos[0]) * UP
         
         vector_field = ArrowVectorField(
@@ -184,35 +184,35 @@ class PredatorPreyModelGraph(Scene):
             x_range = [0, 10, 1],
             y_range = [0, 10, 1],
             tips=False
-        )
+        ).set_color(BLACK)
 
         vector_field = ArrowVectorField(
             f,
             x_range = [0, 11.5, 0.5],
             y_range = [0, 6, 0.5]
-        )
+        ).set_color(BLACK)
         dot = Dot(point = ax.coords_to_point(0.0195, 0.036))
 
         vector_field.align_to(dot, DL)
-        labels = ax.get_axis_labels(x_label="R", y_label="F")
+        labels = ax.get_axis_labels(x_label="R", y_label="F").set_color(BLACK)
         self.play(Write(ax), Write(vector_field), Write(labels))
 
-        stream_lines = StreamLines(
-            f,
-            x_range = [0.1, 15, 0.5],
-            y_range = [0.15, 10, 0.5],
-            virtual_time = 1.5,
-            opacity = 1,
-            stroke_width = 1.9,
-            colors = Colors_two
-        )
-        stream_lines.align_to(dot, DL)
-        stream_lines.shift(UP*0.05)
-        self.wait(2)
-        self.add(stream_lines)
-        stream_lines.start_animation(warm_up=True, flow_speed=1, time_width=0.4)
-        self.wait(10)
-        self.play(Uncreate(stream_lines))
+        #stream_lines = StreamLines(
+        #    f,
+        #    x_range = [0.1, 15, 0.5],
+        #    y_range = [0.15, 10, 0.5],
+        #    virtual_time = 1.5,
+        #    opacity = 1,
+        #    stroke_width = 1.9,
+        #    colors = Colors_two
+        #)
+        #stream_lines.align_to(dot, DL)
+        #stream_lines.shift(UP*0.05)
+        #self.wait(2)
+        #self.add(stream_lines)
+        #stream_lines.start_animation(warm_up=True, flow_speed=1, time_width=0.4)
+        #self.wait(10)
+        #self.play(Uncreate(stream_lines))
 
 # Infects 1-1 #
 class Relationship(VGroup):
@@ -253,15 +253,15 @@ class DotsExponentialGrowth(Scene):
         return C
 
     def construct(self):
-         self.camera.background_color = "#292c35"
+         self.camera.background_color = "#ffffff"
          self.A = Relationship(amount = 1)
          self.B = Relationship(amount = 2)
          self.C = Relationship(amount = 4)
          self.D = Relationship(amount = 8)
-         self.E = Relationship(amount = 16)
+         #self.E = Relationship(amount = 16)
 
-         examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair, self.E.pair).align_to(self.E.pair, DOWN)
-         examples_full = VGroup(self.A, self.B, self.C, self.D, self.E)
+         examples = VGroup(self.A.pair, self.B.pair, self.C.pair, self.D.pair).align_to(self.D.pair, DOWN)
+         examples_full = VGroup(self.A, self.B, self.C, self.D)
          examples.arrange_in_grid(cols=5, cell_alignment=DOWN, buff=1)
          self.add(examples) # Animate this
          self.wait(2)
@@ -279,7 +279,7 @@ class DotsLogisticGrowth(Scene):
         return C
 
     def construct(self):
-         self.camera.background_color = "#292c35"
+         self.camera.background_color = "#ffffff"
          self.A = Relationship(amount = 1)
          self.B = Relationship(amount = 2, preinfect = 1)
          self.C = Relationship(amount = 4, preinfect = 2)
@@ -336,7 +336,7 @@ class DotsLogisticGrowth(Scene):
 # Always 2x infections
 class SIRGraphExponentialInfections_zeroth(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -394,7 +394,7 @@ class SIRGraphExponentialInfections_zeroth(Scene):
 # Pure infections, no recoveries
 class SIRGraphExponentialInfections_first(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -458,7 +458,7 @@ class SIRGraphExponentialInfections_first(Scene):
 # Same as previous, zoomed-in graph.
 class SIRGraphExponentialInfections_second(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -523,7 +523,7 @@ class SIRGraphExponentialInfections_second(Scene):
 # Same as previous, zoomed-in graph.
 class SIRGraphExponentialInfections_third(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -588,7 +588,7 @@ class SIRGraphExponentialInfections_third(Scene):
 # Model infections #
 class SIRGraphNormal_first(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -652,7 +652,7 @@ class SIRGraphNormal_first(Scene):
 # Model infections #
 class SIRGraphNormal_second(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -740,7 +740,7 @@ class RelationshipReproduction(VGroup):
 
 class ReproductionNumber(Scene):        
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # higher
         self.higher1 = RelationshipReproduction(amount = 1, color = RED)
         self.higher2 = RelationshipReproduction(amount = 2)
@@ -817,7 +817,7 @@ class DotsReproductionNumber(Scene):
         return C
 
     def construct(self):
-         self.camera.background_color = "#292c35"
+         self.camera.background_color = "#ffffff"
          self.A = Relationship(amount = 1)
          self.B = Relationship(amount = 2)
          self.C = Relationship(amount = 4)
@@ -837,7 +837,7 @@ class DotsReproductionNumber(Scene):
 # Model infections #
 class SIRGraphNormal_third(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
@@ -901,7 +901,7 @@ class SIRGraphNormal_third(Scene):
 # Model infections #
 class SIRGraphNormal_fourth(Scene):
     def construct(self):
-        self.camera.background_color = "#292c35"
+        self.camera.background_color = "#ffffff"
         # Total Population, N:
         N = 100000
         # Initial Number of infected and recovered individuals, I0 and R0
